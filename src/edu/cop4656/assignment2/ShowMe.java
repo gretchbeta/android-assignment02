@@ -6,13 +6,15 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Button;
-import android.graphics.drawable.Drawable;
 
 public class ShowMe extends Activity implements View.OnClickListener {
 	
 	Button btn;
 	ImageView img;
-	Drawable next;
+	int clicks;
+	
+	boolean is_nole;
+	boolean is_start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +40,42 @@ public class ShowMe extends Activity implements View.OnClickListener {
     }
     
     public void init() {
-    	// Set our flag and pop in the initial image source and button text
-    	// next = getResources().getDrawable(R.drawable.nole_1);
+    	// Set initial states
+    	clicks = 0;
+    	is_start = true;
+    	is_nole = true;
+    	
+    	// Set initial resources
+    	img.setImageDrawable(getResources().getDrawable(R.drawable.nole_1));
+    	btn.setText(getResources().getText(R.string.btn_showgator));
+    }
+    
+    public void next() {
+    	// Handle intro case
+    	if (is_start) {
+    		is_nole = false;
+    		is_start = false;
+    		img.setImageDrawable(getResources().getDrawable(R.drawable.gator_1));
+    		btn.setText(getResources().getText(R.string.btn_shownole));
+    		return;
+    	}
+    	
+    	// Loop
+    	if (is_nole) {
+    		is_nole = false;
+    		img.setImageDrawable(getResources().getDrawable(R.drawable.gator_2));
+    		btn.setText(getResources().getText(R.string.btn_shownole));
+    	} else {
+    		is_nole = true;
+    		img.setImageDrawable(getResources().getDrawable(R.drawable.nole_2));
+    		btn.setText(getResources().getText(R.string.btn_showgator));
+    	}
     }
     
     @Override
     public void onClick(View view) {
-    	
+    	clicks++;
+    	next();
     }
     
 }

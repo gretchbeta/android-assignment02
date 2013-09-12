@@ -11,6 +11,7 @@
     <ImageView android:id="@+id/the_image"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:contentDescription="@string/image_desc" />
     
     <Button android:id="@+id/the_button"
