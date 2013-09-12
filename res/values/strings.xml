@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Assignment 2</string>
+    <string name="action_settings">Settings</string>
+    <string name="image_desc">Image for swappin\'</string>
+    <string name="btn_showgator">Show me a Gator!</string>
+    <string name="btn_shownole">Show me a Nole!</string>
+
+</resources>
